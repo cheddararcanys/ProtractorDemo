@@ -25,6 +25,31 @@ describe('demo calculator tests', function(){
 
         browser.sleep(2000);
 
+    }),
+
+    it('subtraction test', function(){
+
+        browser.get('http://juliemr.github.io/protractor-demo/');
+
+        element(by.model('firs')).sendKeys('2');
+        element(by.model('second')).sendKeys('3');
+
+        element(by.css('[ng-click="doAddition()"]')).click();
+        
+        let result = element(by.cssContainingText('.ng-binding', '5'));
+        expect(result.getText()).toEqual('5');
+        
+        /*browser.driver.ignoreSynchronization = true;
+        browser.waitForAngularEnabled(false);
+        
+        homepage.get('http://juliemr.github.io/protractor-demo/');
+        homepage.enterFirstNumber('4');
+        homepage.enterSecondNumber('3');
+        homepage.clickGo();
+        homepage.verifyResult('7');*/
+
+        browser.sleep(2000);
+
     }) 
         
         /*browser.driver.ignoreSynchronization = true;
@@ -36,6 +61,6 @@ describe('demo calculator tests', function(){
         homepage.clickGo();
         homepage.verifyResult('7');*/
 
-        browser.sleep(5000);
+        //browser.sleep(5000);
 
 });
